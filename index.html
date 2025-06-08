@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Inspiratif</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Blog Miftah X ulp 2.</h1>
+  </header>
+
+  <main>
+    <section class="putar-lagu-section">
+      <h2>Di alihwahankan menjadi blog</h2>
+      <h2>Menemukan Arti di Tengah Letihnya Perjalanan
+    </h2>
+      <div class="kontrol-lagu">
+        <button id="playPauseBtn">🔊 Putar Lagu</button>
+      </div>
+    </section>
+
+    <section class="blog-post">
+      <p>
+        Apakah kamu sedang berada di titik lelah? Mungkin hari ini terasa terlalu berat, langkahmu tertatih, dan hatimu penuh keraguan. Jika ya, tenanglah sejenak. Tarik napas, dan dengarkan ini:
+      </p>
+
+      <blockquote>
+        “Every pain has a purpose – setiap duka memiliki makna.”
+      </blockquote>
+
+      <p>
+        Kalimat ini bukan sekadar kutipan indah. Ia adalah pengingat lembut bahwa di balik setiap air mata dan rasa perih, selalu ada pelajaran. Selalu ada alasan. Bahkan saat kita belum mampu melihatnya sekarang.
+      </p>
+
+      <p>
+        Terkadang, kita menunggu hidup menjadi sempurna untuk merasa bahagia. Menunggu momen yang ‘tepat’, kondisi yang ideal, atau dunia yang lebih ramah. Tapi bagaimana jika kebahagiaan itu sebenarnya hadir bukan karena dunia berubah… melainkan karena kita yang memilih memberi warna?
+      </p>
+
+      <p>
+        Bahagia bukan tentang apa yang kita miliki, tapi tentang bagaimana kita mengisi hidup ini. Tentang keberanian menciptakan makna, bahkan dari kepingan luka.
+      </p>
+
+      <hr />
+
+      <h2>Lembut Adalah Kekuatan</h2>
+
+      <p>
+        Di tengah dunia yang keras, banyak yang memilih membentengi diri dengan kekasaran. Tapi sadarkah kita, bahwa menjadi lembut justru jauh lebih berani? Menjadi penuh kasih, meski tidak selalu dipahami, bukan kelemahan—itu kekuatan sejati.
+      </p>
+
+      <blockquote>
+        “Jadilah lembut dan penuh kasih dalam menghadapi kerasnya kehidupan.”
+      </blockquote>
+
+      <p>
+        Kebaikan itu seperti benih: tak selalu langsung tumbuh, namun ia tidak pernah sia-sia. Diberikan tanpa pamrih, namun pada akhirnya selalu kembali—kepada yang tulus, kepada yang sabar.
+      </p>
+
+      <hr />
+
+      <h2>Proses adalah Harga dari Mimpi</h2>
+
+      <p>
+        Kita semua ingin sukses. Namun, tidak ada pencapaian besar yang datang tanpa harga. Entah itu kerja keras, kegagalan, pengorbanan, atau waktu yang panjang. Semua itu adalah bagian dari perjalanan.
+      </p>
+
+      <blockquote>
+        “Selalu ada harga yang harus dibayar untuk meraih kesuksesan.”
+      </blockquote>
+
+      <p>
+        Dan justru dalam proses itulah kita dibentuk. Dalam jatuh bangun itulah karakter kita ditempa. Maka, jangan takut dengan proses. Hargai setiap langkah, sekecil apa pun itu.
+      </p>
+
+      <hr />
+
+      <h2>Menjadi Versi Terbaik dari Diri Sendiri</h2>
+
+      <p>
+        Saat lelah, saat ragu, saat hampir menyerah—ingatlah:
+      </p>
+
+      <ul>
+        <li>Bahwa duka membawa makna.</li>
+        <li>Warna hidup bisa kamu ciptakan sendiri.</li>
+        <li>Kebaikan adalah jalan, bukan kelemahan.</li>
+        <li>Kesuksesan adalah hasil dari proses, bukan keberuntungan semata.</li>
+      </ul>
+
+      <p>
+        Pada akhirnya, ketika kita memilih untuk tetap berjalan, tetap mencinta, tetap memberi arti, kita tak hanya menjadi lebih sukses. Kita menjadi lebih utuh. Lebih bijak. Dan lebih siap untuk melukis masa depan dengan tangan kita sendiri—dengan hati yang telah mengerti dan jiwa yang tak lagi mudah goyah.
+      </p>
+
+      <hr />
+
+      <p>
+        Kamu tidak sendiri. Dan kamu lebih kuat dari yang kamu kira.
+      </p>
+    </section>
+
+    <section class="lagu">
+      <h2>Sumber Alihwahana</h2>
+      <div class="thumbnail">
+        <img id="thumbnailImg" alt="Thumbnail Video YouTube" />
+      </div>
+
+      <audio id="laguPlayer">
+        <source src="audio/lagu.mp3" type="audio/mpeg" />
+        Browser Anda tidak mendukung pemutar audio.
+      </audio>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Dev By Divz</p>
+  </footer>
+
+  <script>
+    // Tombol Play / Pause Lagu
+    const lagu = document.getElementById("laguPlayer");
+    const tombol = document.getElementById("playPauseBtn");
+
+    tombol.addEventListener("click", () => {
+      if (lagu.paused) {
+        lagu.play();
+        tombol.textContent = "⏸️ Jeda Lagu";
+      } else {
+        lagu.pause();
+        tombol.textContent = "🔊 Putar Lagu";
+      }
+    });
+
+    lagu.addEventListener("ended", () => {
+      tombol.textContent = "🔊 Putar Lagu";
+    });
+
+    // Membuat thumbnail otomatis dari link YouTube
+    const youtubeURL = "https://www.youtube.com/watch?v=SCfxVgtcDVs";
+
+    function getYoutubeID(url) {
+      const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([^&?/]+)/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    }
+
+    const videoID = getYoutubeID(youtubeURL);
+    const thumbnailURL = videoID
+      ? `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`
+      : "";
+
+    const thumbnailImg = document.getElementById("thumbnailImg");
+    if (thumbnailURL) {
+      thumbnailImg.src = thumbnailURL;
+    } else {
+      thumbnailImg.alt = "Thumbnail tidak tersedia";
+    }
+  </script>
+</body>
+</html>
